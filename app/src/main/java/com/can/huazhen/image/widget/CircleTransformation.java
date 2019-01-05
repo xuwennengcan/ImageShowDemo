@@ -12,9 +12,6 @@ import com.bumptech.glide.util.Util;
 
 import java.security.MessageDigest;
 
-/**
- * @author by sunfusheng on 2017/6/6.
- */
 public class CircleTransformation extends BitmapTransformation {
     private final String ID = getClass().getName();
 

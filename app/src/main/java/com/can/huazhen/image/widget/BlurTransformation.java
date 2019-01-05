@@ -14,9 +14,6 @@ import com.bumptech.glide.util.Util;
 
 import java.security.MessageDigest;
 
-/**
- * @author sunfusheng on 2018/6/25.
- */
 public class BlurTransformation extends BitmapTransformation {
     private final String ID = getClass().getName();
 

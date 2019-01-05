@@ -7,21 +7,21 @@ import android.content.Context;
  *
  */
 
-public class Utils {
+class Utils {
 
-    public static int dp2px(Context context, float dp) {
+    static int dp2px(Context context, float dp) {
         return (int) (getDensity(context) * dp + 0.5f);
     }
 
-    public static int sp2px(Context context, float sp) {
+    static int sp2px(Context context, float sp) {
         return (int) (getFontDensity(context) * sp + 0.5f);
     }
 
-    public static float getDensity(Context context) {
+    private static float getDensity(Context context) {
         return context.getResources().getDisplayMetrics().density;
     }
 
-    public static float getFontDensity(Context context) {
+    private static float getFontDensity(Context context) {
         return context.getResources().getDisplayMetrics().scaledDensity;
     }
 }

@@ -321,14 +321,10 @@ public class CircleProgressView extends ProgressBar {
      */
     public void setProgressInTime(int startProgress, final int progress, final long duration) {
         ValueAnimator valueAnimator = ValueAnimator.ofInt(startProgress, progress);
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-
-            @Override
-            public void onAnimationUpdate(ValueAnimator animator) {
-                //获得当前动画的进度值，整型，1-100之间
-                int currentValue = (Integer) animator.getAnimatedValue();
-                setProgress(currentValue);
-            }
+        valueAnimator.addUpdateListener(animator -> {
+            //获得当前动画的进度值，整型，1-100之间
+            int currentValue = (Integer) animator.getAnimatedValue();
+            setProgress(currentValue);
         });
         AccelerateDecelerateInterpolator interpolator = new AccelerateDecelerateInterpolator();
         valueAnimator.setInterpolator(interpolator);

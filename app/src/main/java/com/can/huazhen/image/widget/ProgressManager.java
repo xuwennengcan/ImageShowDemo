@@ -10,10 +10,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-/**
- * @author by sunfusheng on 2017/6/14.
- */
-public class ProgressManager {
+class ProgressManager {
 
     private static Map<String,OnProgressListener> listenersMap = Collections.synchronizedMap(new HashMap<>());
     private static OkHttpClient okHttpClient;
@@ -21,7 +18,7 @@ public class ProgressManager {
     private ProgressManager() {
     }
 
-    public static OkHttpClient getOkHttpClient() {
+    static OkHttpClient getOkHttpClient() {
         if (okHttpClient == null) {
             okHttpClient = new OkHttpClient.Builder()
                     .addNetworkInterceptor(chain -> {
@@ -48,20 +45,20 @@ public class ProgressManager {
         }
     };
 
-    public static void addListener(String url, OnProgressListener listener) {
+    static void addListener(String url, OnProgressListener listener) {
         if (!TextUtils.isEmpty(url) && listener != null) {
             listenersMap.put(url, listener);
             listener.onProgress(false, 1, 0, 0);
         }
     }
 
-    public static void removeListener(String url) {
+    static void removeListener(String url) {
         if (!TextUtils.isEmpty(url)) {
             listenersMap.remove(url);
         }
     }
 
-    public static OnProgressListener getProgressListener(String url) {
+    static OnProgressListener getProgressListener(String url) {
         if (TextUtils.isEmpty(url) || listenersMap == null || listenersMap.size() == 0) {
             return null;
         }
